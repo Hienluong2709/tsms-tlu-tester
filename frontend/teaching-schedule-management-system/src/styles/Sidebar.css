@@ -1,0 +1,126 @@
+.sidebar {
+  width: 220px;
+  background: #1e429f;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  height: 48px;
+  padding: 0;
+  border-bottom: 1px solid #2e4fa2;
+  margin-bottom: 0; /* Bỏ margin để điều khiển khoảng cách qua menu */
+}
+
+.logo-image {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0; /* Giảm margin-top từ mặc định xuống 8px */
+  flex: 1;
+}
+
+.sidebar-menu > li {
+  padding: 0;
+  margin-bottom: 2px; /* Thêm khoảng cách đồng đều giữa tất cả menu cha */
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-menu > li:hover .menu-item {
+  color: #90c3ff;
+}
+
+.arrow-icon {
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #1e429f;
+}
+
+.submenu.open {
+  max-height: 500px;
+}
+
+.submenu li {
+  padding: 0;
+  margin-bottom: 2px; /* Thêm khoảng cách giữa các submenu items */
+}
+
+.submenu-link {
+  display: block;
+  width: 100%;
+  padding: 13px 16px 13px 32px; /* Tăng padding-left từ 16px lên 32px để thụt vào */
+  font-size: 13.5px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.submenu-link:hover {
+  color: #90c3ff;
+  background-color: #1e429f;
+}
+
+.submenu-link.active {
+  background-color: #fff;
+  color: #1e429f !important;
+  box-shadow: inset 4px 0 0 #1e429f, inset -4px 0 0 #1e429f;
+  font-weight: bold;
+  padding: 13px 16px 13px 32px; /* Giữ cùng padding với submenu-link để chữ không bị nhảy */
+}
+
+.menu-link-standalone {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 13px 16px; /* Giữ cùng padding với .menu-item để thẳng hàng */
+}
+
+.menu-link-standalone.active {
+  background-color: #fff;
+  color: #1e429f !important;
+  box-shadow: inset 4px 0 0 #1e429f, inset -4px 0 0 #1e429f;
+  font-weight: bold;
+  padding: 13px 16px; /* Giữ cùng padding để thẳng hàng */
+}

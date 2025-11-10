@@ -1,0 +1,236 @@
+/* Header Container */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 220px; /* Width của SidebarTeacher */
+  width: calc(100% - 220px); /* Ensure header width matches sidebar width */
+  height: 48px; /* Match height with sidebar logo height */
+  background: #fff;
+  z-index: 100;
+  border-bottom: 1px solid #ddd; /* Border below header */
+}
+
+/* Header Bar */
+.header-bar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px 0 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 0; /* Remove left margin to make it align with sidebar */
+}
+
+/* Menu 3 gạch trong khung vuông */
+.header-menu-btn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 0; /* Ensure no extra space before the menu button */
+}
+
+.menu-btn-square {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 0; /* No rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: none;
+  margin: 0;
+}
+
+.menu-btn-square:hover {
+  background: #f5f5f5;
+  box-shadow: none;
+}
+
+/* Left side */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 20px; /* Khoảng cách 2cm (20px) với chữ */
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 12px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.2;
+}
+
+/* .page-date2 {
+    font-size: 8px !important;
+    font-weight: normal !important;
+    color: #999 !important;
+    margin-top: 2px !important  ;
+  } */
+
+/* Right side */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Bell Icon */
+.header-bell {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #ebeef6;
+  background: #ebeef6;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.bell-icon {
+  font-size: 20px;
+  color: #666;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff4757;
+}
+
+/* User Info */
+.header-user-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 0 0 10px;
+  background: none;
+  border: none;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  background: none;
+  border: none;
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 10px;
+  border: none;
+}
+
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+}
+
+.header-user-name {
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  background: none;
+  border: none;
+}
+
+.header-user-role {
+  font-size: 10px;
+  color: #666;
+  background: none;
+  border: none;
+}
+
+.dropdown-arrow {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.header-user-wrapper .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown Item */
+.dropdown-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #333;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  background: none;
+  border: none;
+}
+
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+  color: #dc3545;
+  font-weight: 600;
+  border-top: 1px solid #eaeaea;
+  margin-top: 8px;
+  padding-top: 16px;
+  background: none;
+}
+
+.dropdown-item i {
+  font-size: 16px;
+  width: 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}

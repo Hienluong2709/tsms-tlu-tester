@@ -1,0 +1,149 @@
+/* ========== Overlay (click ra ngoài để đóng) ========== */
+.tsf-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ========== Modal ========== */
+.tsf-modal{
+  width: min(750px, 96vw);
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  display:flex;
+  flex-direction:column;
+  max-height:90vh;   /* chỉ thân cuộn, header sticky */
+  overflow:hidden;
+}
+
+/* Header sticky – luôn bấm được nút X */
+.tsf-header{
+  background:#1f3f94;
+  color:#fff;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position: sticky;
+  top:0;
+  z-index:2;
+}
+.tsf-header h3{ margin:0; font-size:20px; font-weight:700; text-transform:uppercase; }
+.tsf-close{
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* Body cuộn */
+.tsf-body{
+  padding:18px 20px 10px;
+  overflow:auto;
+  flex:1;
+}
+
+/* Lưới 2 cột */
+.tsf-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-bottom:14px;
+}
+
+/* Field */
+.tsf-field label{
+  display:inline-block;
+  margin-bottom:6px;
+  color:#111827;
+  font-weight:600;
+}
+.tsf-field input,
+.tsf-field select,
+.tsf-field textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #cfd8e3;
+  font-size:14px;
+  outline:none;
+  background:#fff;
+  color:#111827;
+  transition:border-color .15s, box-shadow .15s;
+}
+.tsf-field input:disabled{ background:#f3f4f6; color:#6b7280; }
+.tsf-field input:focus,
+.tsf-field select:focus,
+.tsf-field textarea:focus{
+  border-color:#94b3ff;
+  box-shadow:0 0 0 3px rgba(13,71,161,.1);
+}
+
+/* Chi tiết lịch học */
+.tsf-row.detail-row{
+  grid-template-columns: 1fr 1fr 1fr 1fr auto; /* date | start | end | type | trash */
+  gap:12px;
+  align-items:center;
+}
+
+/* Nút xoá/ thêm chi tiết */
+.btn-delete{
+  border:0;
+  background:#f3f4f6;
+  color:#111827;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn-delete:hover{ background:#e5e7eb; }
+
+.btn-add-detail{
+  background:#1f3f94;
+  color:#fff;
+  border:0;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  margin:6px 0 8px;
+}
+.btn-add-detail:hover{ background:#17337a; }
+
+/* Actions */
+.tsf-actions{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end;
+  padding-bottom:12px;
+}
+.tsf-primary{
+  background:#1f3f94;
+  color:#fff;
+  border:0;
+  padding:10px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+.tsf-primary:disabled{ opacity:.6; cursor:not-allowed; }
+.tsf-outline{
+  background:#fff;
+  color:#111827;
+  border:1px solid #cfd8e3;
+  padding:10px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .tsf-row{ grid-template-columns:1fr; }
+  .tsf-row.detail-row{ grid-template-columns:1fr; }
+}

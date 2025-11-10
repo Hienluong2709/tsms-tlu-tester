@@ -1,0 +1,141 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+/* Fix for eye icon positioning */
+.input-group-text i {
+  font-size: 14px;
+  color: #6c757d;
+  position: relative;
+  z-index: 1;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.input-group-text:hover i {
+  color: #495057;
+}
+
+/* Hide any duplicate eye icons that might appear */
+.input-group input::-ms-reveal {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.input-group input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.input-group input::-webkit-strong-password-auto-fill-button {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide Edge/Chrome password reveal button */
+input[type="password"]::-ms-reveal {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input[type="password"]::-webkit-outer-spin-button,
+input[type="password"]::-webkit-inner-spin-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+/* Additional password field styling */
+#password::-ms-reveal {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+#password::-webkit-credentials-auto-fill-button {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  right: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Force remove all browser-generated password icons */
+input[type="password"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
+}
+
+/* Error styling for inputs */
+.form-control.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.form-control.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.input-group-text.border-danger {
+  border-color: #dc3545 !important;
+}
+
+/* Custom error alert styling */
+.alert-danger {
+  background-color: #f8d7da !important;
+  border-color: #f5c6cb !important;
+  color: #721c24 !important;
+  font-weight: 500;
+}
+
+/* Error text styling */
+.text-danger {
+  font-style: italic !important;
+  font-size: 0.875rem !important;
+}
+
+/* Fixed height container for error messages */
+.error-container {
+  height: 14px !important;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1px;
+  margin-bottom: 2px;
+}
+
+.error-container .text-danger {
+  line-height: 1.0;
+  font-size: 0.7rem !important;
+}

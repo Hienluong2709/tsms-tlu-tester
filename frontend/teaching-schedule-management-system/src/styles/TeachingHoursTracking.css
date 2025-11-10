@@ -1,0 +1,263 @@
+/* TeachingHoursTracking.css */
+.teaching-hours-tracking {
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.schedule-content-wrapper {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.schedule-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 12px);
+  margin: 0 6px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 0 20px 0;
+  margin-top: 40px;
+}
+
+.content-header h2 {
+  font-size: 1.6rem;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 700;
+
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.schedule-card {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.schedule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-left-accent {
+  width: 6px;
+  background: #4f75db;
+  min-height: 100%;
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+  padding-left: 20px;
+
+}
+
+.card-header {
+  padding: 20px 25px 15px 0;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e6f2ff 100%);
+  border-bottom: 1px solid #e1e8ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.schedule-title h3 {
+  margin: 0;
+  color: #0f1419;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.status-badge.completed,
+.status-badge.approved {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-badge.pending {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.card-body {
+  padding: 20px 25px 20px 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.schedule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.info-icon {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+  color: #2d3748;
+  filter: grayscale(100%);
+}
+
+.info-text {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.status-text {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.pending-text {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.warning-text {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #4f75db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.confirm-btn {
+  background: #4f75db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.confirm-btn:hover {
+  background: #3e5fc7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 117, 219, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .teaching-hours-tracking {
+    padding: 16px;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .card-header-actions {
+    align-self: flex-end;
+  }
+  
+  .schedule-info {
+    gap: 8px;
+  }
+  
+  .info-row {
+    flex-wrap: wrap;
+  }
+  
+  .confirm-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .schedule-title h3 {
+    font-size: 1rem;
+  }
+  
+  .card-header,
+  .card-body {
+    padding: 16px;
+  }
+}

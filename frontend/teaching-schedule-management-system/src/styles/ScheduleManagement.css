@@ -1,0 +1,208 @@
+.schedule-management {
+  padding: 20px;
+}
+
+.schedule-header-top {
+  display: flex;
+  justify-content: space-between; /* Tiêu đề bên trái, nút bên phải */
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.schedule-header-top h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-leave {
+  background-color: #f84e51;
+  color: white;
+}
+
+.btn-makeup {
+  background-color: #02921a;
+  color: white;
+}
+
+/* Badge trạng thái */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.status-approved {
+  background-color: #e6f7e6;
+  color: #2e7d32; /* xanh lá */
+}
+
+.status-pending {
+  background-color: #fff4e5;
+  color: #f57c00; /* cam */
+}
+
+.status-rejected {
+  background-color: #fdecea;
+  color: #d32f2f; /* đỏ */
+}
+
+/* Danh sách */
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-info {
+  margin-top: 10px;
+}
+
+.schedule-info p {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Nút ở header đã có trước đó --- */
+.schedule-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-leave {
+  background-color: #e74c3c; /* đỏ */
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-leave:hover { background-color: #c0392b; }
+
+.btn-makeup {
+  background-color: #27ae60; /* xanh lá */
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-makeup:hover { background-color: #1e8449; }
+
+/* --- Badge trạng thái --- */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.status-approved { background: #e6f7e6; color: #2e7d32; } /* Đã duyệt - xanh lá */
+.status-pending  { background: #fff4e5; color: #f57c00; } /* Chờ duyệt - cam */
+.status-rejected { background: #fdecea; color: #d32f2f; } /* Từ chối - đỏ */
+
+/* --- Card list --- */
+.schedule-list { list-style: none; padding: 0; margin: 0; }
+.schedule-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #fff;
+}
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.schedule-info p {
+  margin: 6px 0;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.modal-card {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 1px solid #eee;
+}
+.modal-header h3 { margin: 0; font-size: 18px; font-weight: 700; }
+.modal-close {
+  background: transparent; border: none; font-size: 22px; cursor: pointer; line-height: 1;
+}
+.modal-body { padding: 16px; display: grid; gap: 12px; }
+.form-label { display: grid; gap: 6px; font-weight: 600; }
+.form-input, .form-textarea, .form-select {
+  border: 1px solid #ddd; border-radius: 8px; padding: 10px; font-size: 14px;
+}
+.form-textarea { min-height: 100px; resize: vertical; }
+
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px;
+}
+.btn-primary {
+  background: #1677ff; color: #fff; border: none;
+  padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer;
+}
+.btn-primary:hover { background: #145fcb; }
+.btn-outline {
+  background: #f2f2f2; color: #333; border: none;
+  padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+.btn-outline:hover { background: #e6e6e6; }

@@ -1,0 +1,167 @@
+/* ================= Notification Detail (Faculty-like style) ================= */
+
+/* Overlay (Backdrop) */
+.noti-modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+/* Modal shell */
+.noti-modal{
+  width: min(820px, 96vw);
+  max-height: 92vh;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.noti-modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #0d47a1;
+  color: #fff;
+}
+.noti-modal-header > div{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Close button */
+.noti-close{
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  font-size: 22px; line-height: 1;
+  border-radius: 6px;
+}
+.noti-close:hover{ background: rgba(255,255,255,.12); }
+
+/* Body (scrollable) */
+.noti-modal-body{
+  padding: 16px 20px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Footer */
+.noti-modal-actions{
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  text-align: right;
+}
+
+/* Buttons */
+.noti-btn{
+  background: #0d47a1;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.noti-btn:hover{ background: #083c8a; }
+.noti-btn.ghost{
+  background: transparent;
+  color: #0d47a1;
+  border: 1px solid #0d47a1;
+}
+.noti-btn.ghost:hover{ background: rgba(13,71,161,.06); }
+
+/* Form grid */
+.noti-grid2{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px 24px;
+}
+.noti-label{
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.noti-input{
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background: #f6f8fa;
+  color: #495057;
+}
+
+/* Subtitle */
+.noti-subtitle{
+  color: #0d47a1;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e3f2fd;
+  display: flex;
+  align-items: center;
+}
+
+/* Table */
+.noti-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden; /* để bo góc header */
+}
+
+/* Table header cùng màu với tiêu đề */
+.noti-table thead th{
+  background: #0d47a1;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+}
+.noti-table th:first-child{ text-align: center; width: 60px; }
+
+.noti-table tbody td{
+  padding: 10px 14px;
+  border-bottom: 1px solid #e9ecef;
+  text-align: left;
+}
+.noti-table tbody tr:hover{ background: #fafbfc; }
+.noti-table tbody td:first-child{
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Empty state */
+.noti-empty{
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .noti-modal{ width: 96vw; }
+}

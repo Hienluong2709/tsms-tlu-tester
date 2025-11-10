@@ -1,0 +1,52 @@
+/* src/styles/StudentClassSectionDetail.css */
+.scsd-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center; z-index:1000;
+}
+.scsd-modal{
+  width:min(600px, 96vw);
+  max-height:92vh; overflow:auto;
+  background:#fff; border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.scsd-header{
+  background:#0b4aa2; color:#fff; font-weight:700;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px; border-radius:12px 12px 0 0; letter-spacing:.3px;
+}
+.scsd-close{
+  appearance:none; border:0; background:transparent; color:#fff;
+  font-size:22px; line-height:1; cursor:pointer; padding:0 6px;
+}
+.scsd-body{ padding:18px; }
+
+.scsd-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  margin-bottom:14px;
+}
+.scsd-label{
+  display:block; font-size:.92rem; color:#374151; margin-bottom:6px;
+}
+.scsd-input{
+  width:100%; padding:10px 12px; border:1px solid #e5e7eb;
+  border-radius:10px; background:#f8fafc; color:#111827;
+}
+
+.scsd-subtitle{
+  margin:12px 0 8px; font-weight:600; color:#111827;
+}
+
+.scsd-table-wrap{ border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; }
+.scsd-table{ width:100%; border-collapse:collapse; }
+.scsd-table thead tr{ background:#0b4aa2; color:#fff; }
+.scsd-table th, .scsd-table td{ padding:10px 12px; border-bottom:1px solid #e5e7eb; text-align:left; }
+.scsd-table tbody tr:nth-child(even){ background:#f9fafb; }
+
+.scsd-actions{
+  display:flex; justify-content:flex-end; gap:10px; margin-top:16px;
+}
+.scsd-btn{
+  border:0; padding:10px 16px; border-radius:10px; cursor:pointer; font-weight:600;
+}
+.scsd-btn.ghost{ background:#eef2ff; color:#1e3a8a; }
+.scsd-btn.ghost:hover{ filter:brightness(.96); }

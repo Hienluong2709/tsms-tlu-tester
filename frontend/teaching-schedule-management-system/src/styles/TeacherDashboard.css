@@ -1,0 +1,448 @@
+.teaching-dashboard {
+  padding: 6px;
+  max-width: 100%;
+  height: calc(100vh - 48px); /* Full height minus header */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: filter 0.3s ease;
+}
+
+.teaching-dashboard.modal-open {
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 260px)); 
+  gap: 50px; 
+  margin-bottom: 20px; 
+  flex-shrink: 0; 
+  margin-top: 50px;
+  margin-right: 40px;
+  justify-content: center;
+
+}
+
+.stat-card {
+  background: white;
+  padding: 16px; 
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 80px; /* Tăng từ 65px lên 80px */
+  aspect-ratio: 2.0; /* Tăng từ 1.6 lên 2.0 để card dài hơn */
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Màu sắc riêng cho từng stat card */
+.stat-card-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.stat-card-blue .stat-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.stat-card-blue .stat-content h3,
+.stat-card-blue .stat-title {
+  color: white;
+}
+
+.stat-card-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.stat-card-green .stat-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.stat-card-green .stat-content h3,
+.stat-card-green .stat-title {
+  color: white;
+}
+
+.stat-card-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.stat-card-orange .stat-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.stat-card-orange .stat-content h3,
+.stat-card-orange .stat-title {
+  color: white;
+}
+
+.stat-card-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+}
+
+.stat-card-purple .stat-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.stat-card-purple .stat-content h3,
+.stat-card-purple .stat-title {
+  color: white;
+}
+
+.stat-icon {
+  width: 42px; /* Tăng từ 35px lên 42px */
+  height: 42px;
+  border-radius: 8px; /* Tăng từ 6px lên 8px */
+  background: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #090909;
+  font-size: 22px; /* Tăng từ 20px lên 22px */
+  flex-shrink: 0;
+}
+
+.stat-content h3 {
+  font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px; /* Tăng từ 2px lên 4px */
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stat-title {
+  font-size: 1.1rem; /* Tăng từ 1rem lên 1.1rem */
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0;
+}
+
+/* Upcoming Section */
+.upcoming-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.schedule-content-wrapper {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.schedule-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 12px);
+  margin: 0 6px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px; /* Giảm từ 12px xuống 6px */
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.btn-secondary {
+  background: #3b82f6;
+  color: white !important;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #2563eb;
+  color: white !important;
+}
+
+.classes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+}
+
+.class-card {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.class-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.card-left-accent {
+  width: 6px;
+  background: #4f75db;
+  min-height: 100%;
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+  padding: 14px 14px 14px 20px;
+}
+
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.class-title h3 {
+  font-size: 1.3rem; /* Tăng từ 1.2rem lên 1.3rem */
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 6px; /* Tăng từ 4px lên 6px */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Tăng từ 10px lên 12px */
+  line-height: 1.2;
+}
+
+.course-code {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 4px 8px; /* Tăng từ 3px 6px lên 4px 8px */
+  border-radius: 4px;
+  font-size: 0.85rem; /* Tăng từ 0.8rem lên 0.85rem */
+  font-weight: 700;
+}
+
+.class-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* View button - blue */
+.action-btn:nth-child(1) {
+  color: #1d4ed8;
+}
+
+.action-btn:nth-child(1):hover {
+  color: #1e40af;
+  background: rgba(29, 78, 216, 0.1);
+}
+
+/* Edit button - yellow */
+.action-btn:nth-child(2) {
+  color: #eab308;
+}
+
+.action-btn:nth-child(2):hover {
+  color: #ca8a04;
+  background: rgba(234, 179, 8, 0.1);
+}
+
+/* Delete button - red */
+.action-btn:nth-child(3) {
+  color: #dc2626;
+}
+
+.action-btn:nth-child(3):hover {
+  color: #b91c1c;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.class-info {
+  margin-bottom: 0;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Tăng từ 10px lên 12px */
+  margin-bottom: 7px; /* Tăng từ 6px lên 7px */
+  font-size: 1rem; /* Tăng từ 0.9rem lên 1rem */
+  color: #4b5563;
+  line-height: 1.3;
+}
+
+.info-icon {
+  width: 16px; /* Tăng từ 14px lên 16px */
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.class-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.class-type,
+.class-status {
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.type-icon {
+  font-size: 0.7rem;
+}
+
+.class-type.thực-hành {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.class-type.lý-thuyết {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.class-status.upcoming {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-section {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .welcome-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .class-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .teaching-dashboard {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teaching-dashboard {
+    padding: 8px;
+  }
+
+  .welcome-section {
+    padding: 20px 15px;
+  }
+}
+
+
+/* Giữ nguyên style cũ, chỉ thêm cái này */
+.upcoming-section {
+  flex: 1;
+  min-height: 0; /* để con bên trong có thể scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-content-wrapper {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* chỗ danh sách */
+.classes-list.scrollable {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;  /* bật cuộn */
+  padding-right: 8px;
+  max-height: 500px; /* bạn có thể tăng/giảm số này */
+}
+
+/* Tùy chọn: style thanh cuộn cho đẹp */
+.classes-list.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+.classes-list.scrollable::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+.classes-list.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}

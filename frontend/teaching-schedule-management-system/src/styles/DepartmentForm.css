@@ -1,0 +1,103 @@
+/* Overlay */
+.department-form-overlay{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.3);
+  display:flex; align-items:center; justify-content:center;
+  z-index:9999;
+}
+
+/* Card */
+.department-form-card{
+  background:#fff;
+  width:600px; max-width:95vw;
+  border-radius:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+  display:flex; flex-direction:column;
+  /* quan trọng: KHÔNG ẩn overflow để dropdown không bị cắt */
+  overflow:visible;
+}
+
+/* Header */
+.department-form-header{
+  background:#0d47a1; color:#fff;
+  padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.department-form-header h2{ margin:0; font-size:20px; font-weight:600; }
+.department-form-close{
+  background:none; border:none; color:#fff; font-size:24px; cursor:pointer;
+  width:32px; height:32px; display:grid; place-items:center; border-radius:6px;
+}
+.department-form-close:hover{ background:rgba(255,255,255,.1); }
+
+/* Body */
+.department-form-body{ padding:24px; }
+.department-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+/* Groups */
+.form-group{ display:flex; flex-direction:column; }
+.form-group.full-width{ grid-column:span 2; }
+.form-group label{ font-weight:700; margin-bottom:6px; font-size:14px; }
+.form-group label span{ color:#e53935; }
+
+/* Inputs chung (KHÔNG dùng shorthand background) */
+.form-group input,
+.form-group select,
+.form-group textarea{
+  padding:10px 12px;
+  font-size:14px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  background-color:#fff;
+}
+.form-group textarea{ resize:vertical; min-height:100px; }
+.form-group input::placeholder, .form-group textarea::placeholder{ color:#9aa0a6; }
+
+/* Select có mũi tên – dùng pseudo-element để không bị reset */
+.select-wrapper{ position:relative; width:100%; }
+.select-wrapper select{
+  -webkit-appearance:none; -moz-appearance:none; appearance:none;
+  background-color:#fff;
+  /* bỏ line-height để tránh cắt chữ */
+  line-height:normal;
+  height:40px;
+  padding:8px 40px 8px 12px;  /* chừa chỗ cho mũi tên */
+}
+.select-wrapper::after{
+  content:"";
+  position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  width:16px; height:16px; pointer-events:none;
+  background:no-repeat center/16px 16px
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23909aa3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+}
+/* Ẩn mũi tên IE cũ */
+.select-wrapper select::-ms-expand{ display:none; }
+
+/* Focus */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:#0d47a1;
+  box-shadow:0 0 0 2px rgba(13,71,161,.12);
+}
+
+/* Footer */
+.department-form-footer{
+  display:flex; justify-content:flex-end; gap:10px;
+  padding:16px 24px; background:#f8f9fa; border-top:1px solid #e9ecef;
+}
+.submit-btn,.cancel-btn{
+  padding:8px 20px; font-size:14px; border-radius:4px; cursor:pointer; border:none;
+}
+.submit-btn{ background:#0d47a1; color:#fff; }
+.submit-btn:hover{ background:#07418c; }
+.cancel-btn{ background:#f1f1f1; color:#333; }
+.cancel-btn:hover{ background:#ddd; }
+
+/* Responsive */
+@media (max-width:900px){
+  .department-form-grid{ grid-template-columns:1fr; }
+  .form-group.full-width{ grid-column:span 1; }
+}

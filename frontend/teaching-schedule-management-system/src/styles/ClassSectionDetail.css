@@ -1,0 +1,92 @@
+/* Overlay */
+.csd-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Box */
+.csd-box {
+  background: #fff;
+  width: 560px;
+  max-width: 95%;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Header */
+.csd-header {
+  background-color: #0d47a1;
+  color: #fff;
+  padding: 12px 20px;
+  margin: -24px -24px 20px -24px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.csd-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.csd-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Rows */
+.csd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.csd-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f6f8fa;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.csd-label {
+  font-weight: 600;
+  color: #333;
+  width: 45%;
+}
+.csd-value {
+  width: 55%;
+  color: #222;
+  text-align: left;
+}
+
+/* Footer */
+.csd-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  margin-top: 16px;
+}
+.csd-primary {
+  background-color: #0d47a1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.csd-primary:hover {
+  background-color: #0b3c91;
+}

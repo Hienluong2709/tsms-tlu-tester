@@ -1,0 +1,271 @@
+/* Header Container */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  width: calc(100% - 220px);
+  height: 48px;
+  background: #fff;
+  z-index: 100;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Header Bar */
+.header-bar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px 0 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 0;
+}
+
+/* Menu button */
+.header-menu-btn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 0;
+}
+
+.menu-btn-square {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: none;
+  margin: 0;
+}
+
+.menu-btn-square:hover {
+  background: #f5f5f5;
+  box-shadow: none;
+}
+
+/* Left side */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 12px;
+  margin-right: auto;
+}
+
+/* Right side */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Bell Icon - SỬA PHẦN NÀY ĐỂ BỎ VIỀN ĐEN HOÀN TOÀN */
+.header-bell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #EBEEF6;
+  border: none; /* Đảm bảo không có viền */
+  outline: none; /* Loại bỏ outline */
+  box-shadow: none; /* Loại bỏ shadow */
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 0; /* Đảm bảo không có padding gây ra viền */
+}
+
+/* Đảm bảo các trạng thái không thêm viền hoặc shadow */
+.header-bell:focus,
+.header-bell:active,
+.header-bell:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Đảm bảo button bên trong không thêm viền */
+.header-bell .bell-btn {
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.header-bell .bell-btn:focus,
+.header-bell .bell-btn:active,
+.header-bell .bell-btn:hover {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.bell-icon {
+  font-size: 20px;
+  color: #666;
+}
+
+/* Badge số thông báo */
+.notification-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 50%;
+  background-color: #ff4757;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 0 2px #fff;
+  border: none;
+}
+
+/* Bỏ outline cho badge */
+.notification-count:focus,
+.notification-count:active {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #fff !important;
+}
+
+/* User Info */
+.header-user-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 0 0 10px;
+  background: none;
+  border: none;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  background: none;
+  border: none;
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 10px;
+  border: none;
+}
+
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+}
+
+.header-user-name {
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  background: none;
+  border: none;
+}
+
+.header-user-role {
+  font-size: 10px;
+  color: #666;
+  background: none;
+  border: none;
+}
+
+.dropdown-arrow {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.header-user-wrapper .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown Item */
+.dropdown-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #333;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  background: none;
+  border: none;
+}
+
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+  color: #dc3545;
+  font-weight: 600;
+  border-top: 1px solid #eaeaea;
+  margin-top: 8px;
+  padding-top: 16px;
+  background: none;
+}
+
+.dropdown-item i {
+  font-size: 16px;
+  width: 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}

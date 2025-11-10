@@ -1,0 +1,43 @@
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px; /* Dịch chuyển content sang phải để tránh sidebar */
+  width: calc(100% - 220px);
+}
+
+.main-content-with-sidebar {
+  margin-left: 220px; /* Chiều rộng của sidebar */
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px;
+  margin-top: 20px; /* Dịch content xuống dưới một chút */
+  background-color: #f8f9fa;
+}
+
+/* Styling cho teacher và student dashboard */
+.teacher-dashboard, .student-dashboard {
+  min-height: 80vh;
+}
+
+.teacher-dashboard .card, .student-dashboard .card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-dashboard .card-header {
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: bold;
+}
+
+.student-dashboard .card-header {
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: bold;
+}

@@ -1,0 +1,166 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eaf0ff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.form-card.compact {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.add-btn {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #0b3c91;
+}
+
+.search-container {
+  position: relative;
+  width: 280px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 9px 36px 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+/* Table */
+.account-table {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+}
+
+.account-table thead {
+  background-color: #0d47a1;
+  color: #fff;
+}
+
+.account-table th,
+.account-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.account-table th:last-child,
+.account-table td:last-child {
+  width: 180px;
+  text-align: center;
+  padding: 0;
+}
+
+/* Hover */
+.account-table tbody tr:hover {
+  background-color: #f3f7ff;
+}
+
+/* Icon column */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 48px;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.icon.info {
+  color: #1976d2;
+}
+
+.icon.edit {
+  color: #fbc02d;
+}
+
+.icon.delete {
+  color: #e53935;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding: 12px 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pagination select,
+.pagination button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,55 @@
+/* PreviewSchedule.css - style riêng cho bảng xem trước buổi học */
+
+.tsf-preview {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.tsf-preview h4 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.tsf-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+
+.tsf-table thead {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+.tsf-table th,
+.tsf-table td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.tsf-table th {
+  color: #222;
+  font-weight: 600;
+}
+
+.tsf-table tbody tr:hover {
+  background-color: #f7faff;
+  transition: background-color 0.2s;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .tsf-table th,
+  .tsf-table td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+}

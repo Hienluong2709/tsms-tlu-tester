@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eaf0ff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tổng thể layout */
+.subject-container {
+  padding: 20px 10px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header chứa nút thêm + tìm kiếm */
+.subject-header {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+}
+
+.add-button {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0b3c91;
+}
+
+.search-input {
+  padding: 9px 36px 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 280px;
+  color: #1e429f;
+}
+
+/* Bảng dữ liệu môn học */
+.subject-table {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-collapse: collapse;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.subject-table thead {
+  background-color: #0d47a1;
+  color: white;
+}
+
+.subject-table th,
+.subject-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subject-table tbody tr:hover {
+  background-color: #f3f7ff;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.icon.info {
+  color: #1976d2;
+}
+
+.icon.edit {
+  color: #fbc02d;
+}
+
+.icon.delete {
+  color: #e53935;
+}
+
+/* Footer phân trang */
+.footer {
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding: 12px 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pagination select,
+.pagination button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #f2f2f2;
+}

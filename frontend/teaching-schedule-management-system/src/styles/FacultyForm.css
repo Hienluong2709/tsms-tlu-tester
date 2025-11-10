@@ -1,0 +1,175 @@
+/* ===== Overlay che màn hình ===== */
+.faculty-form-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+
+/* ===== Card chính ===== */
+.faculty-form-card {
+  background: #fff;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== Header ===== */
+.faculty-form-header {
+  background-color: #0d47a1;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faculty-form-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.faculty-form-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+}
+.faculty-form-close:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+/* ===== Body (form) ===== */
+.faculty-form-body {
+  padding: 24px;
+}
+.faculty-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* full-width cho textarea */
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+/* ===== Mỗi input/select/textarea ===== */
+.form-group {
+  display: flex; flex-direction: column;
+}
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.form-group label span {
+  color: red;
+}
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===== Select có icon bên trong ===== */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+.select-wrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 40px; /* chừa chỗ cho icon V */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #111;
+
+  /* Ẩn mũi tên mặc định */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Fix Safari/Firefox */
+  background-image: none;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+.select-wrapper .select-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
+  font-size: 14px;
+  line-height: 1;
+}
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #0d47a1;
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.15);
+}
+
+/* ===== Footer nút ===== */
+.faculty-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+.submit-btn,
+.cancel-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+.submit-btn {
+  background-color: #0d47a1;
+  color: white;
+}
+.submit-btn:hover {
+  background-color: #07418c;
+}
+.cancel-btn {
+  background-color: #f1f1f1;
+  color: #333;
+}
+.cancel-btn:hover {
+  background-color: #ddd;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .faculty-form-card {
+    width: 95%;
+  }
+  .faculty-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+}

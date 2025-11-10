@@ -1,0 +1,197 @@
+/* ViewScheduleModal.css */
+.view-modal-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  max-width: 500px; /* Giảm từ 550px xuống 500px như CreateScheduleModal */
+  width: 80%; /* Giảm từ 90% xuống 80% như CreateScheduleModal */
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: viewModalSlideIn 0.3s ease-out;
+}
+
+@keyframes viewModalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.view-modal-header {
+  background: #4f75db;
+  color: white;
+  padding: 14px 16px; /* Cập nhật như CreateScheduleModal */
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.view-modal-header h2 {
+  font-size: 1rem; /* Giảm từ 1.1rem xuống 1rem như CreateScheduleModal */
+  font-weight: 700;
+  margin: 0;
+  margin-left: 15px; /* Thêm margin-left như CreateScheduleModal */
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.view-modal-content {
+  padding: 16px 20px 20px 20px; /* Giảm từ 20px 24px 24px 24px như CreateScheduleModal */
+}
+
+.info-section {
+  margin-bottom: 12px; /* Giảm từ 18px xuống 12px */
+}
+
+.section-title {
+  font-size: 0.85rem; /* Giảm từ 0.95rem xuống 0.85rem như CreateScheduleModal */
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0; /* Giảm margin-bottom từ 12px xuống 8px */
+}
+
+.info-row {
+  display: flex;
+  gap: 6px; /* Cập nhật từ 2px lên 6px để giống CreateScheduleModal */
+  margin-bottom: 6px; /* Giảm từ 16px xuống 6px như CreateScheduleModal */
+}
+
+.info-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-group.full-width {
+  flex: 100%;
+}
+
+.info-group label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1px; /* Giảm từ 6px xuống 1px như CreateScheduleModal */
+  font-size: 0.85rem; /* Giảm từ 0.9rem xuống 0.85rem như CreateScheduleModal */
+}
+
+.required {
+  color: #dc2626;
+}
+
+.info-display {
+  padding: 6px 10px; /* Giảm từ 10px 12px xuống 6px 10px như CreateScheduleModal */
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.85rem; /* Giảm từ 0.9rem xuống 0.85rem như CreateScheduleModal */
+  background: #f9fafb;
+  color: #374151;
+  min-height: 20px;
+}
+
+.content-display {
+  padding: 6px 10px; /* Giảm từ 10px 12px xuống 6px 10px như CreateScheduleModal */
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  background: #f9fafb;
+  color: #374151;
+  min-height: 50px; /* Giảm từ 80px xuống 50px như CreateScheduleModal */
+  font-size: 0.85rem; /* Giảm từ 0.9rem xuống 0.85rem như CreateScheduleModal */
+  line-height: 1.5;
+}
+
+.view-modal-footer {
+  display: flex;
+  gap: 8px; /* Giảm từ 12px xuống 8px như CreateScheduleModal */
+  justify-content: flex-end;
+  padding-top: 12px; /* Giảm từ 20px xuống 12px như CreateScheduleModal */
+  border-top: 1px solid #e5e7eb;
+  margin-top: 12px; /* Giảm từ 20px xuống 12px như CreateScheduleModal */
+}
+
+.btn-edit,
+.btn-cancel {
+  padding: 8px 18px; 
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem; 
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  min-width: 90px; 
+}
+
+.btn-edit {
+  background: #4f75db;
+  color: white;
+  order: 2; 
+}
+
+.btn-edit:hover {
+  background: #3e5fc7;
+}
+
+.btn-cancel {
+  background: #858585; 
+  color: white;
+  order: 1;
+}
+
+.btn-cancel:hover {
+  background: #4b5563;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-modal-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .view-modal-content {
+    padding: 16px;
+  }
+  
+  .info-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .view-modal-footer {
+    flex-direction: column-reverse;
+  }
+  
+  .btn-edit,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-modal-header {
+    padding: 12px 16px;
+  }
+  
+  .view-modal-header h2 {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,119 @@
+/* Overlay toàn màn hình */
+.modal-subject-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Hộp modal chính */
+.modal-subject-content {
+  background: white;
+  width: 850px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header của modal */
+.modal-subject-header {
+  background-color: #1D479A !important;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.modal-subject-header h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+
+/* Nút đóng (X) */
+.close-button {
+  font-size: 25px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+/* Phần form */
+.subject-form {
+  padding: 24px;
+}
+
+/* Grid layout cho form */
+.subject-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Nhóm input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* Input và Select */
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* Button group */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+/* Các nút */
+.submit-button,
+.cancel-button {
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  margin-left: 10px;
+}
+
+.submit-button {
+  background-color: #174ea6;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #f1f1f1;
+  color: #333;
+}

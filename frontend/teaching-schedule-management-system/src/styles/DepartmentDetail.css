@@ -1,0 +1,106 @@
+/* Overlay */
+.department-detail-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+/* Modal shell */
+.department-detail-modal {
+  width: min(750px, 96vw);
+  max-height: 92vh;                /* giới hạn chiều cao modal */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  display: flex; flex-direction: column;
+  overflow: hidden;                 /* giữ header/footer, body cuộn */
+}
+
+/* Header (cố định) */
+.department-detail-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px;
+  background: #0d47a1; color: #fff;
+}
+.department-detail-header h2 { margin: 0; font-size: 18px; font-weight: 700; }
+.department-detail-close {
+  background: none; border: none; color: #fff; cursor: pointer;
+  width: 32px; height: 32px; display: grid; place-items: center;
+  font-size: 22px; border-radius: 6px; line-height: 1;
+}
+.department-detail-close:hover { background: rgba(255,255,255,.12); }
+
+/* Body (CUỘN Ở ĐÂY) — đúng class khớp với JS */
+.department-detail-body {
+  padding: 16px 20px;
+  flex: 1 1 auto;
+  min-height: 0;                    /* cần cho overflow trong flex */
+  overflow: auto;
+}
+
+/* Footer (cố định) */
+.department-detail-footer {
+  padding: 12px 20px;
+  background: #f8f9fa; border-top: 1px solid #e9ecef;
+  text-align: right;
+}
+.btn-back {
+  background: #0d47a1; color: #fff; border: none;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 14px;
+}
+.btn-back:hover { background: #083c8a; }
+
+/* Section & tiêu đề */
+.department-detail-section { margin-top: 12px; }
+.department-detail-section h3 {
+  color: #0d47a1; font-size: 16px; font-weight: 700;
+  margin: 12px 0; padding-bottom: 8px; border-bottom: 2px solid #e3f2fd;
+}
+
+/* Grid thông tin cơ bản */
+.basic-info-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px 24px;
+}
+.basic-info-item { display: flex; flex-direction: column; }
+.basic-info-item--full { grid-column: 1 / -1; }
+.basic-info-item label { font-size: 14px; color: #333; margin-bottom: 6px; }
+.basic-info-item input, .basic-info-item textarea {
+  width: 100%; padding: 8px 12px; font-size: 14px;
+  border: 1px solid #ced4da; border-radius: 6px; background: #f6f8fa; color: #495057;
+}
+.basic-info-item textarea { resize: vertical; min-height: 100px; }
+
+/* Bảng + vùng cuộn ngang khi hẹp */
+.table-scroll { overflow: auto; }
+.department-teachers-table,
+.department-subjects-table {
+  width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 16px;
+}
+.department-teachers-table th, .department-teachers-table td,
+.department-subjects-table th, .department-subjects-table td {
+  padding: 10px 14px; border-bottom: 1px solid #e9ecef; text-align: left;
+}
+.department-teachers-table th, .department-subjects-table th {
+  background: #f8f9fa; font-weight: 700;
+}
+.department-teachers-table tr:hover, .department-subjects-table tr:hover {
+  background: #fafbfc;
+}
+.department-teachers-table td:first-child,
+.department-subjects-table td:first-child {
+  width: 60px; text-align: center; font-weight: 700;
+}
+
+/* No data */
+.no-data {
+  color: #6c757d; font-style: italic; text-align: center;
+  padding: 16px; background: #f8f9fa; border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .department-detail-modal { width: 96vw; }
+}
