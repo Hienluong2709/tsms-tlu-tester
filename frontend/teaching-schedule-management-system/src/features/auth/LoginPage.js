@@ -55,6 +55,8 @@ export default function LoginPage() {
       if (!token) throw new Error("Login thành công nhưng backend không trả token.");
 
       const role = normalizeRole(data?.user?.role);
+      
+      // --- PHẦN QUAN TRỌNG ĐÃ SỬA ---
       const userPayload = {
         id: data?.user?.id ?? null,
         username: data?.user?.username ?? username,
@@ -66,7 +68,10 @@ export default function LoginPage() {
         role,                         
         rawRole: data?.user?.role ?? null,
         teacherId: data?.user?.teacherId ?? null,
+        // Thêm dòng này để lưu mã sinh viên
+        studentCode: data?.user?.studentCode ?? null, 
       };
+      // --------------------------------
 
       login({ token, user: userPayload }, rememberMe);
 

@@ -46,24 +46,30 @@ public class AuthController {
         UserEntity userEntity = userRepository.findByUsername(userDetails.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
+        // Lấy quyền (Role)
         String role = userDetails.getAuthorities().iterator().next().getAuthority();
 
         Long teacherId = null;
         Long studentId = null;
         String fullName = null;
+        String studentCode = null; // 1. Khai báo biến studentCode
 
-        if ("ROLE_TEACHER".equals(role)) {
+        // Kiểm tra Role (Thêm check cả "STUDENT" cho chắc chắn vì bạn đã sửa DB)
+        if ("ROLE_TEACHER".equals(role) || "TEACHER".equals(role)) {
             TeacherEntity teacher = teacherRepository.findByUserId(userEntity.getId())
                     .orElseThrow(() -> new RuntimeException("Teacher not found for user " + userEntity.getId()));
             teacherId = teacher.getId();
             fullName = teacher.getFullName();
-        } else if ("ROLE_STUDENT".equals(role)) {
+            
+        } else if ("ROLE_STUDENT".equals(role) || "STUDENT".equals(role)) {
             StudentEntity student = studentRepository.findByUserId(userEntity.getId())
                     .orElseThrow(() -> new RuntimeException("Student not found for user " + userEntity.getId()));
             studentId = student.getId();
             fullName = student.getFullName();
+            studentCode = student.getStudentCode(); // 2. Lấy mã sinh viên từ bảng students
         }
 
+        // 3. Đóng gói vào DTO trả về
         UserResponseDto userResponseDto = UserResponseDto.builder()
                 .id(userEntity.getId())
                 .username(userDetails.getUsername())
@@ -71,6 +77,7 @@ public class AuthController {
                 .teacherId(teacherId)
                 .studentId(studentId)
                 .fullName(fullName)
+                .studentCode(studentCode) // <-- QUAN TRỌNG: Gửi kèm studentCode về
                 .build();
 
         return ResponseEntity.ok(new JwtResponseDto(token, userResponseDto));

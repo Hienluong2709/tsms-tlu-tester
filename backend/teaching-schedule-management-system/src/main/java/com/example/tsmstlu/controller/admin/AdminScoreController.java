@@ -21,6 +21,11 @@ public class AdminScoreController {
         return ResponseEntity.ok(scoreService.inputGrade(dto));
     }
 
+    @GetMapping("/class-sections")
+    public ResponseEntity<?> getClassSections() {
+        return ResponseEntity.ok(scoreService.getAllClassSectionsForDropdown());
+    }
+
     // 2. Xét học bổng
     @PostMapping("/scholarship/evaluate/{scholarshipId}")
     public ResponseEntity<?> evaluateScholarship(@PathVariable Long scholarshipId) {

@@ -18,7 +18,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClassSectionResponseDto {
-    private String name;
+    private Long id;            // ID của lớp học phần
+    private String name;        // Tên lớp học phần
+    
+    // Các thông tin chi tiết khác (nếu cần dùng)
     private TeacherResponseDto teacher;
     private SubjectResponseDto subject;
     private DepartmentResponseDto department;

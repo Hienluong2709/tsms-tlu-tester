@@ -21,4 +21,9 @@ public class StudentScoreController {
                                                @RequestBody ConductInputDto dto) {
         return ResponseEntity.ok(scoreService.submitConductScore(studentCode, dto));
     }
+
+    @GetMapping("/semesters")
+    public ResponseEntity<?> getSemesters() {
+        return ResponseEntity.ok(scoreService.getAllSemestersForStudent());
+    }
 }
