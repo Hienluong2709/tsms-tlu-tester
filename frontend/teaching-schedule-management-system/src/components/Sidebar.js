@@ -78,6 +78,13 @@ const Sidebar = () => {
           </ul>
         </li>
 
+        <li className="nav-item">
+          <NavLink to="/admin/input-grade" className="nav-link text-white">
+              <i className="fas fa-marker me-2"></i>
+              Nhập điểm
+          </NavLink>
+      </li>
+
         {/* LỊCH HỌC */}
         <li className={openMenus.lichHoc ? 'open' : ''}>
           <div className="menu-item">

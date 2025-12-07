@@ -19,4 +19,5 @@ public class UserResponseDto {
     private Long teacherId;
     private Long studentId;
     private String fullName;
+    private String studentCode;
 }
