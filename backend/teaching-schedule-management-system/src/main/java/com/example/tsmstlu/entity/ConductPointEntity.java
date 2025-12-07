@@ -19,10 +19,27 @@ public class ConductPointEntity {
     @JoinColumn(name = "semester_id")
     private SemesterEntity semester;
 
-    private Integer score; // Điểm số (0-100)
+    // --- CÁC TRƯỜNG MỚI ---
+    @Column(name = "criteria_1")
+    private Integer criteria1;
+
+    @Column(name = "criteria_2")
+    private Integer criteria2;
+
+    @Column(name = "criteria_3")
+    private Integer criteria3;
+
+    @Column(name = "criteria_4")
+    private Integer criteria4;
+
+    @Column(name = "criteria_5")
+    private Integer criteria5;
+    // ----------------------
+
+    private Integer score; // Tổng điểm (Vẫn giữ để query cho nhanh)
 
     @Column(name = "rank_conduct")
-    private String rankConduct; // Tốt, Khá...
+    private String rankConduct; // Xếp loại
 
     private String status; // PENDING, APPROVED
 }

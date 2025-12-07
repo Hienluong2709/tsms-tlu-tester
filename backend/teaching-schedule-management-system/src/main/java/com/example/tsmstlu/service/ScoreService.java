@@ -82,49 +82,88 @@ public class ScoreService {
         return response;
     }
 
-    // 2. CHỨC NĂNG: SINH VIÊN CHẤM ĐIỂM RÈN LUYỆN
+    // 2. CHỨC NĂNG: SINH VIÊN CHẤM ĐIỂM RÈN LUYỆN (UPDATE LOGIC MỚI)
     @Transactional
     public com.example.tsmstlu.dto.score.ConductResponseDto submitConductScore(String studentCode, ConductInputDto dto) {
+        // 1. Validate dữ liệu đầu vào (Không được null)
+        if (dto.getCriteria1() == null || dto.getCriteria2() == null || 
+            dto.getCriteria3() == null || dto.getCriteria4() == null || dto.getCriteria5() == null) {
+            throw new RuntimeException("Vui lòng nhập đầy đủ điểm cho cả 5 tiêu chí");
+        }
+
+        // 2. Validate ràng buộc điểm tối đa (Max scores)
+        validateCriteriaScore(dto.getCriteria1(), 20, "Mục 1");
+        validateCriteriaScore(dto.getCriteria2(), 25, "Mục 2");
+        validateCriteriaScore(dto.getCriteria3(), 20, "Mục 3");
+        validateCriteriaScore(dto.getCriteria4(), 25, "Mục 4");
+        validateCriteriaScore(dto.getCriteria5(), 10, "Mục 5");
+
+        // 3. Tìm sinh viên và học kỳ
         StudentEntity student = studentRepository.findByStudentCode(studentCode)
                 .orElseThrow(() -> new RuntimeException("Sinh viên không tồn tại"));
         
         SemesterEntity semester = semesterRepository.findById(dto.getSemesterId())
                 .orElseThrow(() -> new RuntimeException("Học kỳ không tồn tại"));
+        
+        // (Optional) Kiểm tra xem học kỳ có hợp lệ không (ví dụ: chỉ cho phép kỳ vừa kết thúc)
+        // if (!isValidSemesterForConduct(semester)) throw ...
 
+        // 4. Tìm hoặc tạo mới bản ghi điểm rèn luyện
         ConductPointEntity conduct = conductRepository
                 .findByStudent_StudentCodeAndSemester_Id(studentCode, dto.getSemesterId())
                 .orElse(new ConductPointEntity());
 
         conduct.setStudent(student);
         conduct.setSemester(semester);
-        conduct.setScore(dto.getScore());
-        
-        // Tự động xếp loại rèn luyện
-        if (dto.getScore() >= 90) conduct.setRankConduct("Xuất sắc");
-        else if (dto.getScore() >= 80) conduct.setRankConduct("Tốt");
-        else if (dto.getScore() >= 65) conduct.setRankConduct("Khá");
-        else if (dto.getScore() >= 50) conduct.setRankConduct("Trung bình");
-        else conduct.setRankConduct("Yếu");
 
+        // 5. Lưu chi tiết từng điểm thành phần
+        conduct.setCriteria1(dto.getCriteria1());
+        conduct.setCriteria2(dto.getCriteria2());
+        conduct.setCriteria3(dto.getCriteria3());
+        conduct.setCriteria4(dto.getCriteria4());
+        conduct.setCriteria5(dto.getCriteria5());
+
+        // 6. TỰ ĐỘNG TÍNH TỔNG ĐIỂM (Read-Only Logic)
+        int totalScore = dto.getCriteria1() + dto.getCriteria2() + dto.getCriteria3() 
+                       + dto.getCriteria4() + dto.getCriteria5();
+        conduct.setScore(totalScore);
+
+        // 7. TỰ ĐỘNG XẾP LOẠI (Read-Only Logic)
+        conduct.setRankConduct(calculateRank(totalScore));
+        
         conduct.setStatus("PENDING"); // Chờ duyệt
         
         // Lưu DB
         ConductPointEntity savedConduct = conductRepository.save(conduct);
 
-        // --- CHUYỂN ĐỔI SANG DTO ---
+        // Convert sang DTO trả về (Code cũ của bạn giữ nguyên phần này)
         com.example.tsmstlu.dto.score.ConductResponseDto response = new com.example.tsmstlu.dto.score.ConductResponseDto();
         response.setId(savedConduct.getId());
         response.setStudentCode(student.getStudentCode());
         if (student.getFullName() != null) response.setStudentName(student.getFullName());
         if (semester.getName() != null) response.setSemesterName(semester.getName());
-        
         response.setScore(savedConduct.getScore());
         response.setRankConduct(savedConduct.getRankConduct());
         response.setStatus(savedConduct.getStatus());
-
         return response;
     }
 
+    // --- HÀM PHỤ TRỢ (HELPER METHODS) ---
+
+    private void validateCriteriaScore(Integer score, int max, String label) {
+        if (score < 0 || score > max) {
+            throw new RuntimeException(label + " phải nằm trong khoảng 0 đến " + max);
+        }
+    }
+
+    private String calculateRank(int totalScore) {
+        if (totalScore >= 90) return "Xuất sắc";
+        if (totalScore >= 80) return "Tốt";
+        if (totalScore >= 65) return "Khá";
+        if (totalScore >= 50) return "Trung bình";
+        return "Yếu";
+    }
+    
     // 3. CHỨC NĂNG: ADMIN XÉT HỌC BỔNG (Tự động tính GPA -> So sánh -> Trao giải)
     @Transactional
     public List<com.example.tsmstlu.dto.score.StudentScholarshipResponseDto> evaluateScholarship(Long scholarshipId) {
