@@ -22,9 +22,6 @@ public class StudentGradeEntity {
     @JoinColumn(name = "class_section_id")
     private ClassSectionEntity classSection;
 
-    @Column(name = "attendance_score")
-    private BigDecimal attendanceScore; // Chuyên cần
-
     @Column(name = "midterm_score")
     private BigDecimal midtermScore;    // Giữa kỳ
 

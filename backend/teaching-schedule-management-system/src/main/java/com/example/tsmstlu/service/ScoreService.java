@@ -45,17 +45,14 @@ public class ScoreService {
         // Cập nhật thông tin
         grade.setStudent(student);
         grade.setClassSection(classSection);
-        grade.setAttendanceScore(dto.getAttendanceScore());
         grade.setMidtermScore(dto.getMidtermScore());
         grade.setFinalScore(dto.getFinalScore());
 
         // Tính điểm tổng kết (hệ 10)
-        // Công thức: 10% CC + 40% GK + 50% CK
-        double cc = dto.getAttendanceScore().doubleValue();
         double gk = dto.getMidtermScore().doubleValue();
         double ck = dto.getFinalScore().doubleValue();
         
-        double total10 = (cc * 0.1) + (gk * 0.4) + (ck * 0.5);
+        double total10 = (gk * 0.5) + (ck * 0.5);
         grade.setTotalScore10(BigDecimal.valueOf(total10).setScale(2, RoundingMode.HALF_UP));
 
         // Quy đổi điểm chữ và hệ 4
@@ -74,7 +71,6 @@ public class ScoreService {
         // Lấy tên lớp từ đối tượng classSection đã tìm thấy ở trên
         response.setClassName(classSection.getName());
         
-        response.setAttendanceScore(savedGrade.getAttendanceScore());
         response.setMidtermScore(savedGrade.getMidtermScore());
         response.setFinalScore(savedGrade.getFinalScore());
         response.setTotalScore10(savedGrade.getTotalScore10());

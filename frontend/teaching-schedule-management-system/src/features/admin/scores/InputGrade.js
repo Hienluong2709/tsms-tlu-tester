@@ -51,7 +51,6 @@ const InputGrade = () => {
             const payload = {
                 studentCode: formData.studentCode,
                 classSectionId: parseInt(formData.classSectionId),
-                attendanceScore: parseFloat(formData.attendanceScore),
                 midtermScore: parseFloat(formData.midtermScore),
                 finalScore: parseFloat(formData.finalScore)
             };
@@ -113,15 +112,11 @@ const InputGrade = () => {
 
                         <div className="row mb-4">
                             <div className="col-md-4">
-                                <label className="form-label">Điểm Chuyên Cần (10%):</label>
-                                <input type="number" step="0.1" min="0" max="10" className="form-control" name="attendanceScore" value={formData.attendanceScore} onChange={handleChange} required />
-                            </div>
-                            <div className="col-md-4">
-                                <label className="form-label">Điểm Giữa Kỳ (40%):</label>
+                                <label className="form-label">Điểm Giữa Kỳ:</label>
                                 <input type="number" step="0.1" min="0" max="10" className="form-control" name="midtermScore" value={formData.midtermScore} onChange={handleChange} required />
                             </div>
                             <div className="col-md-4">
-                                <label className="form-label">Điểm Cuối Kỳ (50%):</label>
+                                <label className="form-label">Điểm Cuối Kỳ:</label>
                                 <input type="number" step="0.1" min="0" max="10" className="form-control" name="finalScore" value={formData.finalScore} onChange={handleChange} required />
                             </div>
                         </div>
