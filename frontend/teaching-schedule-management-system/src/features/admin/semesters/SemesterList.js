@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTrashAlt, FaEdit, FaInfoCircle, FaSearch } from 'react-icons/fa';
 import '../../../styles/SemesterList.css';
 import SemesterDetail from './SemesterDetail';
@@ -10,9 +10,8 @@ const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
 
   const [openDetail, setOpenDetail] = useState(false);
-  const [selectedSemester, setSelectedSemester] = useState(null); 
-  const [editingSemester, setEditingSemester] = useState(null); 
-
+  const [selectedSemester, setSelectedSemester] = useState(null);
+  const [editingSemester, setEditingSemester] = useState(null);
 
   const fetchSemesters = async () => {
     try {
@@ -27,21 +26,20 @@ const SemesterList = () => {
     fetchSemesters();
   }, []);
 
-const handleSaveSemester = async (data) => {
-  try {
-    if (data.id) {
-      await updateSemester(data.id, data);
-    } else {
-      await createSemester(data);
+  const handleSaveSemester = async (data) => {
+    try {
+      if (data.id) {
+        await updateSemester(data.id, data);
+      } else {
+        await createSemester(data);
+      }
+      await fetchSemesters(); // Tải lại danh sách mới nhất sau khi lưu
+      setOpenForm(false);
+      setEditingSemester(null);
+    } catch (error) {
+      console.error("Lỗi khi lưu học kỳ:", error.response?.data || error.message);
     }
-    await fetchSemesters(); 
-    setOpenForm(false);    
-    setEditingSemester(null);
-  } catch (error) {
-    console.error("Lỗi khi lưu học kỳ:", error.response?.data || error.message);
-  }
-};
-
+  };
 
   const handleView = async (semesterToList) => {
     try {
@@ -65,7 +63,6 @@ const handleSaveSemester = async (data) => {
     }
   };
 
-
   const handleSemesterDelete = async (semesterId) => {
     const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa học kỳ này không?");
     if (confirmDelete) {
@@ -75,7 +72,7 @@ const handleSaveSemester = async (data) => {
         alert("Học kỳ đã được xóa thành công!");
       } catch (error) {
         console.error('❌ Lỗi khi xóa học kỳ:', error);
-        alert("Có lỗi xảy ra khi xóa học kỳ .");
+        alert("Có lỗi xảy ra khi xóa học kỳ.");
       }
     }
   };
@@ -117,7 +114,9 @@ const handleSaveSemester = async (data) => {
           setEditingSemester(null);
         }}
         initialData={editingSemester}
-        onSave={handleSaveSemester} 
+        onSave={handleSaveSemester}
+        // Truyền danh sách học kỳ vào đây để Form check trùng
+        existingSemesters={semesters} 
       />
 
       <table className="semester-table">

@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 public class GradeInputDto {
     private String studentCode;    // Mã sinh viên cần nhập điểm
     private Long classSectionId;   // Mã lớp học phần
-    
-    private BigDecimal attendanceScore; // Điểm CC
     private BigDecimal midtermScore;    // Điểm GK
     private BigDecimal finalScore;      // Điểm CK
 }

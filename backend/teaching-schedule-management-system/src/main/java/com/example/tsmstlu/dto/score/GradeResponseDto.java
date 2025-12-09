@@ -9,7 +9,6 @@ public class GradeResponseDto {
     private String studentCode;
     private String studentName; // Thêm tên cho dễ nhìn
     private String className;   // Thêm tên lớp
-    private BigDecimal attendanceScore;
     private BigDecimal midtermScore;
     private BigDecimal finalScore;
     private BigDecimal totalScore10;
